@@ -185,7 +185,7 @@ public final class FlightRecorderProfiler implements ExternalProfiler {
         if (STACK_DEPTH != null) opts.add("stackdepth=" + STACK_DEPTH);
         if (THREAD_BUFFER_SIZE != null) opts.add("threadbuffersize=" + THREAD_BUFFER_SIZE);
 
-        return asList("-XX:+UnlockCommercialFeatures",
+        return asList(
                       "-XX:+FlightRecorder",
                       "-XX:FlightRecorderOptions=" + join(",", opts));
     }

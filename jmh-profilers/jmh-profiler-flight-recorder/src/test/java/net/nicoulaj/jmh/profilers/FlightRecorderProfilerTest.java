@@ -47,7 +47,6 @@ public class FlightRecorderProfilerTest {
         switch (getJVM()) {
         case HOTSPOT:
         case JROCKIT:
-            if (!runningInTravisWithJDK9())
                 break;
         default:
             throw new SkipException("Profiler not available in this environment, cannot test");
@@ -70,7 +69,7 @@ public class FlightRecorderProfilerTest {
     }
 
     private static boolean runningInTravisWithJDK9() {
-        return System.getenv("TRAVIS").contentEquals("true") &&
+        return System.getenv().getOrDefault("TRAVIS", "false").contentEquals("true") &&
                 System.getProperty("java.version").contentEquals("9");
     }
 }
