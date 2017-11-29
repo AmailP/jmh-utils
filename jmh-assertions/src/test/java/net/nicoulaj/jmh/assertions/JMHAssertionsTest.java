@@ -44,6 +44,6 @@ public class JMHAssertionsTest {
 
     @Test
     public void test003() {
-        assertJMH().hasScoreOver(0.1);
+        assertJMH().hasScoreOver(0.01);
     }
 }
